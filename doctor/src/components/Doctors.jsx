@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 export default function Doctors() {
   const [doctors, setDoctors] = useState([]);
   const [filter, setFilter] = useState("");
   const { specialty } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("https://doctor-appointment-qn6q.onrender.com/api/doctors")
@@ -50,7 +51,11 @@ export default function Doctors() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {filteredDoctors.map((doc) => (
-          <div key={doc._id} className="bg-white border p-4 rounded shadow hover:shadow-lg text-center">
+          <div
+            key={doc._id}
+            onClick={() => navigate(`/appointment/${doc._id}`)}
+            className="bg-white border p-4 rounded shadow hover:shadow-lg text-center cursor-pointer transition"
+          >
             <img
               src={doc.image}
               alt={doc.name}
