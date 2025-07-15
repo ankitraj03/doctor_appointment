@@ -11,7 +11,7 @@ export default function DoctorPanel() {
     const fetchAppointments = async () => {
       setLoading(true);
       try {
-        const res = await axios.get("http://localhost:5000/api/appointments");
+        const res = await axios.get("https://doctor-appointment-qn6q.onrender.com/api/appointments");
         const filtered = res.data.filter(
           (appt) =>
             appt.doctorId?.name?.toLowerCase().trim() ===
