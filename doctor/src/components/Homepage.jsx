@@ -9,7 +9,7 @@ export default function Homepage() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/doctors")
+      .get("https://doctor-appointment-qn6q.onrender.com/api/doctors")
       .then((res) => setDoctors(res.data))
       .catch((err) => console.error("Error fetching doctors:", err.message));
   }, []);
