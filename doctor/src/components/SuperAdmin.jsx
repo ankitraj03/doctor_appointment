@@ -15,7 +15,7 @@ export default function SuperAdmin() {
 
   const fetchDoctors = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/doctors");
+      const res = await axios.get("https://doctor-appointment-qn6q.onrender.com/api/doctors");
       setDoctors(res.data);
     } catch (err) {
       console.error("Error fetching doctors:", err);
@@ -35,7 +35,7 @@ export default function SuperAdmin() {
   const handleAddDoctor = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/doctors", formData);
+      await axios.post("https://doctor-appointment-qn6q.onrender.com/api/doctors", formData);
       setFormData({
         name: "",
         email: "",
@@ -56,7 +56,7 @@ export default function SuperAdmin() {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this doctor?")) return;
     try {
-      await axios.delete(`http://localhost:5000/api/doctors/${id}`);
+      await axios.delete(`https://doctor-appointment-qn6q.onrender.com/api/doctors/${id}`);
       fetchDoctors();
     } catch (err) {
       console.error("Error deleting doctor:", err);
