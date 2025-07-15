@@ -14,7 +14,7 @@ export default function Appointment() {
   const [patientPhone, setPatientPhone] = useState("");
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/doctors/${id}`)
+    axios.get(`https://doctor-appointment-qn6q.onrender.com/api/doctors/${id}`)
       .then((res) => setDoctor(res.data))
       .catch((err) => console.error("Failed to fetch doctor:", err));
   }, [id]);
