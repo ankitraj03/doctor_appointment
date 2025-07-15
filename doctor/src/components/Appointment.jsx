@@ -45,13 +45,13 @@ export default function Appointment() {
       patientPhone,
       patientIssue,
       doctorId: doctor._id,
-      doctorName: doctor.name, // ✅ added doctor name to save in DB
+      doctorName: doctor.name, 
       date: selectedDate,
       time: selectedTime
     };
 
     try {
-      await axios.post("http://localhost:5000/api/appointments", payload);
+      await axios.post("https://doctor-appointment-qn6q.onrender.com/api/appointments", payload);
       alert("Appointment booked successfully!");
       setShowModal(false);
       setPatientName("");
