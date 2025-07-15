@@ -7,7 +7,7 @@ export default function Doctors() {
   const { specialty } = useParams();
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/doctors")
+    fetch("https://doctor-appointment-qn6q.onrender.com/api/doctors")
       .then((res) => res.json())
       .then((data) => {
         setDoctors(data);
